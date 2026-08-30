@@ -1,0 +1,116 @@
+project:
+  id: money-manager
+  name: Money Manager Product Blueprint
+  status: active
+  last_updated: 2026-08-30
+  north_star: >-
+    A financial event should be useful with minimal information, and every
+    additional fact, relationship, context, or inference should progressively
+    increase what the system can understand and what questions it can answer.
+
+documents:
+  - id: 00-how-to-read
+    path: docs/00-HOW-TO-READ.md
+    role: reading-guide
+    authority: meta
+    importance: critical
+    read_when: always
+    purpose: explains reading order, authority, and how to extend the blueprint
+
+  - id: 01-vision
+    path: docs/01-VISION.md
+    role: north-star
+    authority: stable
+    importance: critical
+    read_when: always
+    purpose: explains why the product exists and what makes it different
+
+  - id: 02-principles
+    path: docs/02-PRINCIPLES.md
+    role: guardrails
+    authority: stable
+    importance: critical
+    read_when: always
+    purpose: rules that should govern product and architecture decisions
+
+  - id: 03-domain
+    path: docs/03-DOMAIN.md
+    role: ontology
+    authority: domain
+    importance: critical
+    read_when: always
+    purpose: canonical conceptual model of financial reality
+
+  - id: 04-capabilities
+    path: docs/04-CAPABILITIES.md
+    role: capability-map
+    authority: evolving
+    importance: high
+    read_when: feature-work
+    purpose: maps optional/core/future capabilities without turning vision into mandatory scope
+
+  - id: 05-scenarios
+    path: docs/05-SCENARIOS.md
+    role: scenario-corpus
+    authority: evolving
+    importance: high
+    read_when: domain-changes, feature-work, architecture
+    purpose: messy real-world cases used as conceptual tests
+
+  - id: 06-questions
+    path: docs/06-QUESTIONS.md
+    role: value-map
+    authority: evolving
+    importance: high
+    read_when: product-work, analytics-work
+    purpose: defines questions the product should make answerable
+
+  - id: 07-ai
+    path: docs/07-AI.md
+    role: ai-contract
+    authority: domain
+    importance: critical-for-ai
+    read_when: ai-work, ingestion, assistant-work
+    purpose: defines AI responsibilities, boundaries, model strategy, and evaluation
+
+  - id: 08-data-truth
+    path: docs/08-DATA-TRUTH.md
+    role: trust-model
+    authority: stable
+    importance: critical
+    read_when: always; especially ai-work and data-work
+    purpose: separates facts, assertions, defaults, inference, estimates, unknowns, and provenance
+
+  - id: 09-decisions
+    path: docs/09-DECISIONS.md
+    role: decision-records
+    authority: decisions
+    importance: critical
+    read_when: always
+    purpose: records durable product and architecture decisions and their rationale
+
+  - id: 10-roadmap
+    path: docs/10-ROADMAP.md
+    role: delivery-plan
+    authority: delivery
+    importance: medium
+    read_when: planning, implementation-priority
+    purpose: distinguishes current delivery from the long-term vision
+
+  - id: 12-version-plan
+    path: docs/12-VERSION-PLAN.md
+    role: version-plan
+    authority: delivery
+    importance: high
+    read_when: planning, architecture-evolution, release-work
+    purpose: self-contained per-version goals, architecture, AI role, quality bar, exit criteria, and non-goals
+
+agent_rules:
+  canonical_terms: docs/03-DOMAIN.md
+  trust_rules: docs/08-DATA-TRUTH.md
+  ai_rules: docs/07-AI.md
+  decision_rules: docs/09-DECISIONS.md
+  version_plan: docs/12-VERSION-PLAN.md
+  scenario_tests: docs/05-SCENARIOS.md
+  task_template: examples/agent-task-template.md
+  domain_change_template: examples/domain-change-template.md
